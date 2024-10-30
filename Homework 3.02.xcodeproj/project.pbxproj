@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4892F3792CD29B5800430B68 /* Exceptions for "Homework 3.02" folder in "Homework 3.02" target */ = {
+		4892F3DA2CD2BA1C00430B68 /* Exceptions for "Homework 3.02" folder in "Homework 3.02" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,19 +43,9 @@
 		4892F3532CD29B5600430B68 /* Homework 3.02 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				4892F3792CD29B5800430B68 /* Exceptions for "Homework 3.02" folder in "Homework 3.02" target */,
+				4892F3DA2CD2BA1C00430B68 /* Exceptions for "Homework 3.02" folder in "Homework 3.02" target */,
 			);
 			path = "Homework 3.02";
-			sourceTree = "<group>";
-		};
-		4892F36A2CD29B5800430B68 /* Homework 3.02Tests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Homework 3.02Tests";
-			sourceTree = "<group>";
-		};
-		4892F3742CD29B5800430B68 /* Homework 3.02UITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Homework 3.02UITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -89,8 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				4892F3532CD29B5600430B68 /* Homework 3.02 */,
-				4892F36A2CD29B5800430B68 /* Homework 3.02Tests */,
-				4892F3742CD29B5800430B68 /* Homework 3.02UITests */,
 				4892F3522CD29B5600430B68 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,9 +131,6 @@
 			dependencies = (
 				4892F3692CD29B5800430B68 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				4892F36A2CD29B5800430B68 /* Homework 3.02Tests */,
-			);
 			name = "Homework 3.02Tests";
 			packageProductDependencies = (
 			);
@@ -165,9 +150,6 @@
 			);
 			dependencies = (
 				4892F3732CD29B5800430B68 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				4892F3742CD29B5800430B68 /* Homework 3.02UITests */,
 			);
 			name = "Homework 3.02UITests";
 			packageProductDependencies = (
@@ -296,6 +278,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,9 +286,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Maiboroda-Daniil.Homework-3-02";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -323,6 +310,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +318,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Maiboroda-Daniil.Homework-3-02";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
