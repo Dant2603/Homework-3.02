@@ -24,28 +24,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4892F3512CD29B5600430B68 /* Homework 3.02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework 3.02.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4892F3672CD29B5800430B68 /* Homework 3.02Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Homework 3.02Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4892F3712CD29B5800430B68 /* Homework 3.02UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Homework 3.02UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4892F3512CD29B5600430B68 /* Crypto Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4892F3672CD29B5800430B68 /* Crypto TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crypto TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4892F3712CD29B5800430B68 /* Crypto TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crypto TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4892F3DA2CD2BA1C00430B68 /* Exceptions for "Homework 3.02" folder in "Homework 3.02" target */ = {
+		4892F3DA2CD2BA1C00430B68 /* Exceptions for "Crypto Tracker" folder in "Crypto Tracker" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				App/Info.plist,
 			);
-			target = 4892F3502CD29B5600430B68 /* Homework 3.02 */;
+			target = 4892F3502CD29B5600430B68 /* Crypto Tracker */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4892F3532CD29B5600430B68 /* Homework 3.02 */ = {
+		4892F3532CD29B5600430B68 /* Crypto Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				4892F3DA2CD2BA1C00430B68 /* Exceptions for "Homework 3.02" folder in "Homework 3.02" target */,
+				4892F3DA2CD2BA1C00430B68 /* Exceptions for "Crypto Tracker" folder in "Crypto Tracker" target */,
 			);
-			path = "Homework 3.02";
+			path = "Crypto Tracker";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -78,7 +78,7 @@
 		4892F3482CD29B5600430B68 = {
 			isa = PBXGroup;
 			children = (
-				4892F3532CD29B5600430B68 /* Homework 3.02 */,
+				4892F3532CD29B5600430B68 /* Crypto Tracker */,
 				4892F3522CD29B5600430B68 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,9 +86,9 @@
 		4892F3522CD29B5600430B68 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4892F3512CD29B5600430B68 /* Homework 3.02.app */,
-				4892F3672CD29B5800430B68 /* Homework 3.02Tests.xctest */,
-				4892F3712CD29B5800430B68 /* Homework 3.02UITests.xctest */,
+				4892F3512CD29B5600430B68 /* Crypto Tracker.app */,
+				4892F3672CD29B5800430B68 /* Crypto TrackerTests.xctest */,
+				4892F3712CD29B5800430B68 /* Crypto TrackerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,9 +96,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4892F3502CD29B5600430B68 /* Homework 3.02 */ = {
+		4892F3502CD29B5600430B68 /* Crypto Tracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4892F37A2CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Homework 3.02" */;
+			buildConfigurationList = 4892F37A2CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Crypto Tracker" */;
 			buildPhases = (
 				4892F34D2CD29B5600430B68 /* Sources */,
 				4892F34E2CD29B5600430B68 /* Frameworks */,
@@ -109,18 +109,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				4892F3532CD29B5600430B68 /* Homework 3.02 */,
+				4892F3532CD29B5600430B68 /* Crypto Tracker */,
 			);
-			name = "Homework 3.02";
+			name = "Crypto Tracker";
 			packageProductDependencies = (
 			);
 			productName = "Homework 3.02";
-			productReference = 4892F3512CD29B5600430B68 /* Homework 3.02.app */;
+			productReference = 4892F3512CD29B5600430B68 /* Crypto Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4892F3662CD29B5800430B68 /* Homework 3.02Tests */ = {
+		4892F3662CD29B5800430B68 /* Crypto TrackerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4892F37F2CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Homework 3.02Tests" */;
+			buildConfigurationList = 4892F37F2CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Crypto TrackerTests" */;
 			buildPhases = (
 				4892F3632CD29B5800430B68 /* Sources */,
 				4892F3642CD29B5800430B68 /* Frameworks */,
@@ -131,16 +131,16 @@
 			dependencies = (
 				4892F3692CD29B5800430B68 /* PBXTargetDependency */,
 			);
-			name = "Homework 3.02Tests";
+			name = "Crypto TrackerTests";
 			packageProductDependencies = (
 			);
 			productName = "Homework 3.02Tests";
-			productReference = 4892F3672CD29B5800430B68 /* Homework 3.02Tests.xctest */;
+			productReference = 4892F3672CD29B5800430B68 /* Crypto TrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4892F3702CD29B5800430B68 /* Homework 3.02UITests */ = {
+		4892F3702CD29B5800430B68 /* Crypto TrackerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4892F3822CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Homework 3.02UITests" */;
+			buildConfigurationList = 4892F3822CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Crypto TrackerUITests" */;
 			buildPhases = (
 				4892F36D2CD29B5800430B68 /* Sources */,
 				4892F36E2CD29B5800430B68 /* Frameworks */,
@@ -151,11 +151,11 @@
 			dependencies = (
 				4892F3732CD29B5800430B68 /* PBXTargetDependency */,
 			);
-			name = "Homework 3.02UITests";
+			name = "Crypto TrackerUITests";
 			packageProductDependencies = (
 			);
 			productName = "Homework 3.02UITests";
-			productReference = 4892F3712CD29B5800430B68 /* Homework 3.02UITests.xctest */;
+			productReference = 4892F3712CD29B5800430B68 /* Crypto TrackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -181,7 +181,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4892F34C2CD29B5600430B68 /* Build configuration list for PBXProject "Homework 3.02" */;
+			buildConfigurationList = 4892F34C2CD29B5600430B68 /* Build configuration list for PBXProject "Crypto Tracker" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -195,9 +195,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4892F3502CD29B5600430B68 /* Homework 3.02 */,
-				4892F3662CD29B5800430B68 /* Homework 3.02Tests */,
-				4892F3702CD29B5800430B68 /* Homework 3.02UITests */,
+				4892F3502CD29B5600430B68 /* Crypto Tracker */,
+				4892F3662CD29B5800430B68 /* Crypto TrackerTests */,
+				4892F3702CD29B5800430B68 /* Crypto TrackerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,12 +253,12 @@
 /* Begin PBXTargetDependency section */
 		4892F3692CD29B5800430B68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4892F3502CD29B5600430B68 /* Homework 3.02 */;
+			target = 4892F3502CD29B5600430B68 /* Crypto Tracker */;
 			targetProxy = 4892F3682CD29B5800430B68 /* PBXContainerItemProxy */;
 		};
 		4892F3732CD29B5800430B68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4892F3502CD29B5600430B68 /* Homework 3.02 */;
+			target = 4892F3502CD29B5600430B68 /* Crypto Tracker */;
 			targetProxy = 4892F3722CD29B5800430B68 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -272,7 +272,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Homework 3.02/App/Info.plist";
+				INFOPLIST_FILE = "Crypto Tracker/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -304,7 +304,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Homework 3.02/App/Info.plist";
+				INFOPLIST_FILE = "Crypto Tracker/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -461,7 +461,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Homework 3.02.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Homework 3.02";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crypto Tracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Crypto Tracker";
 			};
 			name = Debug;
 		};
@@ -479,7 +479,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Homework 3.02.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Homework 3.02";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crypto Tracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Crypto Tracker";
 			};
 			name = Release;
 		};
@@ -518,7 +518,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4892F34C2CD29B5600430B68 /* Build configuration list for PBXProject "Homework 3.02" */ = {
+		4892F34C2CD29B5600430B68 /* Build configuration list for PBXProject "Crypto Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4892F37D2CD29B5800430B68 /* Debug */,
@@ -527,7 +527,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4892F37A2CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Homework 3.02" */ = {
+		4892F37A2CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Crypto Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4892F37B2CD29B5800430B68 /* Debug */,
@@ -536,7 +536,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4892F37F2CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Homework 3.02Tests" */ = {
+		4892F37F2CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Crypto TrackerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4892F3802CD29B5800430B68 /* Debug */,
@@ -545,7 +545,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4892F3822CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Homework 3.02UITests" */ = {
+		4892F3822CD29B5800430B68 /* Build configuration list for PBXNativeTarget "Crypto TrackerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4892F3832CD29B5800430B68 /* Debug */,

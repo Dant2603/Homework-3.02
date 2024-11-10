@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Q0-3T-FxI">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Crypto Tracker View Controller-->
+        <scene sceneID="bsV-HI-Dm4">
+            <objects>
+                <collectionViewController id="oeN-rz-CTv" customClass="CryptoTrackerViewController" customModule="Crypto_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J4n-ua-puG">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="1" minimumInteritemSpacing="10" id="P96-AC-cxC">
+                            <size key="itemSize" width="308" height="235"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CryptoCell" id="bQS-DZ-lDl" customClass="CryptoCell" customModule="Crypto_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="42.666666666666664" y="0.0" width="308" height="235"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Vi-4P-ITB" customClass="CryptoCell" customModule="Crypto_Tracker" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="235"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxp-be-9Od">
+                                            <rect key="frame" x="48" y="191" width="42" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Er-7gZ">
+                                            <rect key="frame" x="218" y="191" width="42" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDY-nx-sd5">
+                                            <rect key="frame" x="129.66666666666666" y="148" width="49" height="23"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="7Ev-SL-K9E">
+                                            <rect key="frame" x="144" y="65" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3e-GV-bbt">
+                                            <rect key="frame" x="60" y="19" width="188" height="113"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="7Ev-SL-K9E" secondAttribute="trailing" constant="144" id="11H-WW-6Bs"/>
+                                        <constraint firstItem="B3e-GV-bbt" firstAttribute="centerX" secondItem="1Vi-4P-ITB" secondAttribute="centerX" id="2a6-Xr-Xbv"/>
+                                        <constraint firstItem="kDY-nx-sd5" firstAttribute="top" secondItem="7Ev-SL-K9E" secondAttribute="bottom" constant="63" id="ET8-LQ-Btt"/>
+                                        <constraint firstItem="B3e-GV-bbt" firstAttribute="width" secondItem="1Vi-4P-ITB" secondAttribute="height" multiplier="0.8" id="Ebd-cA-ZqG"/>
+                                        <constraint firstAttribute="bottom" secondItem="kDY-nx-sd5" secondAttribute="bottom" constant="64" id="HgX-u7-Acv"/>
+                                        <constraint firstAttribute="trailing" secondItem="L4k-Er-7gZ" secondAttribute="trailing" constant="48" id="OMW-bu-wsp"/>
+                                        <constraint firstAttribute="bottom" secondItem="L4k-Er-7gZ" secondAttribute="bottom" constant="24" id="UBg-7b-k9Y"/>
+                                        <constraint firstAttribute="bottom" secondItem="fxp-be-9Od" secondAttribute="bottom" constant="24" id="i8E-VC-qE1"/>
+                                        <constraint firstItem="kDY-nx-sd5" firstAttribute="top" secondItem="B3e-GV-bbt" secondAttribute="bottom" constant="16" id="mmn-yv-YKT"/>
+                                        <constraint firstItem="B3e-GV-bbt" firstAttribute="top" secondItem="1Vi-4P-ITB" secondAttribute="top" constant="19" id="oHi-SW-kHT"/>
+                                        <constraint firstItem="fxp-be-9Od" firstAttribute="leading" secondItem="1Vi-4P-ITB" secondAttribute="leading" constant="48" id="voC-gO-7pc"/>
+                                        <constraint firstItem="kDY-nx-sd5" firstAttribute="centerX" secondItem="1Vi-4P-ITB" secondAttribute="centerX" id="xgL-i9-AWg"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="activityIndicator" destination="7Ev-SL-K9E" id="wcn-KE-4cT"/>
+                                        <outlet property="nameLabel" destination="kDY-nx-sd5" id="i8t-SB-Mkl"/>
+                                        <outlet property="priceChangeLabel" destination="L4k-Er-7gZ" id="lpb-zM-Y8k"/>
+                                        <outlet property="priceLabel" destination="fxp-be-9Od" id="FmQ-bE-X7Z"/>
+                                    </connections>
+                                </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <size key="customSize" width="308" height="235"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="7Ev-SL-K9E" id="DiO-a4-6aL"/>
+                                    <outlet property="logoImageView" destination="B3e-GV-bbt" id="mDu-OC-sdx"/>
+                                    <outlet property="nameLabel" destination="kDY-nx-sd5" id="Ga8-sr-IRW"/>
+                                    <outlet property="priceChangeLabel" destination="L4k-Er-7gZ" id="Neb-z3-VCS"/>
+                                    <outlet property="priceLabel" destination="fxp-be-9Od" id="LVt-Vr-WkJ"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="oeN-rz-CTv" id="63w-vH-HI3"/>
+                            <outlet property="delegate" destination="oeN-rz-CTv" id="l97-f2-G83"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="hTA-nn-kyq"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ccn-iy-kLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756.48854961832058" y="686.61971830985919"/>
+        </scene>
+        <!--Crypto Tracker-->
+        <scene sceneID="z9B-jl-xmh">
+            <objects>
+                <navigationController title="Crypto Tracker" id="4Q0-3T-FxI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KtJ-46-GK9">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oeN-rz-CTv" kind="relationship" relationship="rootViewController" id="Sva-MO-fcN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mMS-US-Khi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62" y="688"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
