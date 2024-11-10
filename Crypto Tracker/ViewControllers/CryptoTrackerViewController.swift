@@ -93,47 +93,76 @@ final class CryptoTrackerViewController: UICollectionViewController {
     private let placeholderImage = UIImage(named: "Placeholder")
     private let refreshControl = UIRefreshControl()
     private var activityIndicator: UIActivityIndicatorView!
-
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Crypto Tracker"
+        navigationItem.backButtonTitle = "Back" 
         setupActivityIndicator()
         setupRefreshControl()
         fetchCryptoData()
+        collectionView.allowsSelection = true
     }
-
+    
     // MARK: - Setup Methods
     private func setupActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.hidesWhenStopped = true
     }
-
+    
     private func setupRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshCryptoData), for: .valueChanged)
         collectionView.refreshControl = refreshControl
     }
-
+    
     // MARK: - Actions
     @objc private func refreshCryptoData() {
         fetchCryptoData()
     }
-
+    
     // MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cryptoAssets.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CryptoCell", for: indexPath)
         guard let cell = cell as? CryptoCell else { return UICollectionViewCell() }
-
+        
         let cryptoAsset = cryptoAssets[indexPath.item]
         let crypto = Link.allCases[indexPath.item]
         let logo = logos[indexPath.item] ?? placeholderImage
-
+        let isEnabled = isDataLoaded(for: cryptoAsset)
+        
         cell.configure(with: cryptoAsset, color: crypto.color, logo: logo, placeholder: placeholderImage)
+        cell.updateAppearance(isEnabled: isEnabled)
         return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let cryptoAsset = cryptoAssets[indexPath.item]
+        return isDataLoaded(for: cryptoAsset)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected item at \(indexPath)")
+        performSegue(withIdentifier: "showDetailSegue", sender: indexPath)
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailSegue" {
+            guard let detailVC = segue.destination as? CryptoDetailViewController,
+                  let indexPath = sender as? IndexPath else { return }
+            
+            let selectedAsset = cryptoAssets[indexPath.item]
+            let selectedLogo = logos[indexPath.item]
+            
+            detailVC.cryptoAsset = selectedAsset
+            detailVC.logoImage = selectedLogo
+        }
     }
 }
 
@@ -156,15 +185,26 @@ extension CryptoTrackerViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Helper Methods
 extension CryptoTrackerViewController {
-    func createDefaultAssets() -> [CryptoAsset] {
+    private func createDefaultAssets() -> [CryptoAsset] {
         return Link.allCases.map { link in
             CryptoAsset(
-                name: "\(link.name) (Unavailable)",
+                id: link.name.lowercased(),
+                rank: "N/A",
                 symbol: link.symbol,
+                name: "\(link.name) (Unavailable)",
+                supply: "N/A",
+                maxSupply: "N/A",
+                marketCapUsd: "N/A",
+                volumeUsd24Hr: "N/A",
                 priceUsd: "N/A",
-                changePercent24Hr: "N/A"
+                changePercent24Hr: "N/A",
+                explorer: nil
             )
         }
+    }
+    
+    func isDataLoaded(for cryptoAsset: CryptoAsset) -> Bool {
+        return cryptoAsset.priceUsd != "N/A"
     }
 }
 

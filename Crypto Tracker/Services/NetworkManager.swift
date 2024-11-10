@@ -13,9 +13,13 @@ enum NetworkError: Error {
 }
 
 final class NetworkManager {
+    
+    // MARK: - Properties
     static let shared = NetworkManager()
+    
     private init() {}
     
+    // MARK: - Image Fetching
     func fetchImage(from url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url) else {
@@ -56,6 +60,7 @@ final class NetworkManager {
         }
     }
     
+    // MARK: - Data Fetching
     func fetch<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
@@ -111,8 +116,7 @@ final class NetworkManager {
         }
     }
     
-    
-    
+    // MARK: - Combined Data and Logo Fetching
     func fetchAllCryptoData(for cryptos: [Link], defaultAssets: [CryptoAsset], itemCompletion: @escaping (Int, CryptoAsset, UIImage?) -> Void, completion: @escaping () -> Void) {
         let totalCryptos = cryptos.count
         var completedRequests = 0
@@ -147,7 +151,5 @@ final class NetworkManager {
             } completion: {}
         }
     }
-    
-    
 }
 

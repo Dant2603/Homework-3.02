@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct CryptoAsset: Decodable, CustomStringConvertible {
-    let name: String
+struct CryptoAsset: Decodable {
+    let id: String
+    let rank: String?
     let symbol: String
+    let name: String
+    let supply: String?
+    let maxSupply: String?
+    let marketCapUsd: String?
+    let volumeUsd24Hr: String?
     let priceUsd: String
     let changePercent24Hr: String?
-
-    var description: String {
-        let priceUsd = Double(priceUsd) ?? 0.00
-        let changePercent24Hr = Double(changePercent24Hr ?? "0.00") ?? 0.00
-
-        return "name: \(name), symbol: \(symbol), \(String(format: "%.4f", priceUsd)), changePercent24Hr: \(String(format: "%.2f", changePercent24Hr))%"
-    }
+    let explorer: String?
 }
 
 struct CryptoDataResponse: Decodable {
