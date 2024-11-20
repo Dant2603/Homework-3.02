@@ -5,7 +5,7 @@
 //  Created by Мария Гетманская on 09.11.2024.
 //
 
-import UIKit
+import Foundation
 
 enum NetworkError: Error {
     case noData
@@ -21,53 +21,23 @@ final class NetworkManager {
     
     // MARK: - Image Fetching
     func fetchImage(from url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else {
+        URLSession.shared.dataTask(with: url) {data, _, error in
+            guard let data else {
                 print("Failed to fetch image data from URL: \(url)")
                 completion(.failure(.noData))
                 return
             }
-            DispatchQueue.main.async {
-                completion(.success(imageData))
-            }
-        }
+            completion(.success(data))
+        }.resume()
     }
     
-    func fetchLogos(for cryptos: [Link], itemCompletion: @escaping (Int, UIImage?) -> Void, completion: @escaping () -> Void) {
-        let totalCryptos = cryptos.count
-        var completedRequests = 0
-        
-        for (index, crypto) in cryptos.enumerated() {
-            fetchImage(from: crypto.logoURL) { result in
-                DispatchQueue.main.async {
-                    let logo: UIImage?
-                    switch result {
-                    case .success(let imageData):
-                        logo = UIImage(data: imageData)
-                    case .failure:
-                        logo = UIImage(named: "Placeholder")
-                        print("Failed to load logo for \(crypto.name). Using placeholder.")
-                    }
-                    
-                    itemCompletion(index, logo)
-                    completedRequests += 1
-                    
-                    if completedRequests == totalCryptos {
-                        completion()
-                    }
-                }
-            }
-        }
-    }
     
     // MARK: - Data Fetching
     func fetch<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(.failure(.noData))
-                    print(error ?? "No error description")
-                }
+            guard let data else {
+                completion(.failure(.noData))
+                print(error ?? "No error description")
                 return
             }
             
@@ -75,80 +45,78 @@ final class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let dataModel = try decoder.decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(dataModel))
-                }
+                completion(.success(dataModel))
             } catch {
-                DispatchQueue.main.async {
-                    completion(.failure(.decodingError))
-                }
+                completion(.failure(.decodingError))
             }
         }.resume()
     }
     
-    func fetchCryptoData(for cryptos: [Link], defaultAssets: [CryptoAsset], itemCompletion: @escaping (Int, CryptoAsset) -> Void, completion: @escaping () -> Void) {
-        let totalCryptos = cryptos.count
-        var completedRequests = 0
-        
-        for (index, crypto) in cryptos.enumerated() {
-            fetch(CryptoDataResponse.self, from: crypto.url) { result in
-                DispatchQueue.main.async {
-                    var asset = defaultAssets[index]
-                    switch result {
-                    case .success(let cryptoDataResponse):
-                        if let firstCryptoAsset = cryptoDataResponse.data.first {
-                            asset = firstCryptoAsset
-                        } else {
-                            print("No data for \(crypto.symbol), using default asset.")
-                        }
-                    case .failure(let error):
-                        print("Failed to fetch data for \(crypto.symbol): \(error)")
-                    }
-                    
-                    itemCompletion(index, asset)
-                    completedRequests += 1
-                    
-                    if completedRequests == totalCryptos {
-                        completion()
-                    }
+    func fetchCryptoData(for crypto: Link, completion: @escaping (Result<CryptoAsset, NetworkError>) -> Void) {
+        fetch(CryptoDataResponse.self, from: crypto.url) { result in
+            switch result {
+            case .success(let cryptoDataResponse):
+                if let firstCryptoAsset = cryptoDataResponse.data.first {
+                    completion(.success(firstCryptoAsset))
+                } else {
+                    print("No data for \(crypto.symbol), using default asset.")
+                    completion(.failure(.noData))
                 }
+            case .failure(let error):
+                print("Failed to fetch data for \(crypto.symbol): \(error)")
+                completion(.failure(error))
             }
         }
     }
     
     // MARK: - Combined Data and Logo Fetching
-    func fetchAllCryptoData(for cryptos: [Link], defaultAssets: [CryptoAsset], itemCompletion: @escaping (Int, CryptoAsset, UIImage?) -> Void, completion: @escaping () -> Void) {
-        let totalCryptos = cryptos.count
+    func fetchAllCryptoData(completion: @escaping ([Link: CryptoData]) -> Void) {
+        let cryptos = Link.allCases
+        var results: [Link: CryptoData] = [:]
         var completedRequests = 0
         
-        for (index, crypto) in cryptos.enumerated() {
-            var asset = defaultAssets[index]
-            var logo: UIImage?
-            var dataLoaded = false
-            var logoLoaded = false
+        for (_, crypto) in cryptos.enumerated() {
+            var asset: CryptoAsset?
+            var imageData: Data?
             
+            // Flags to track loading of data and image
+            var assetLoaded = false
+            var imageLoaded = false
+            
+            // Closure to check if both data and image have been loaded
             func checkCompletion() {
-                if dataLoaded && logoLoaded {
-                    itemCompletion(index, asset, logo)
+                if assetLoaded && imageLoaded {
+                    let cryptoData = CryptoData(asset: asset!, imageData: imageData)
+                    results[crypto] = cryptoData
                     completedRequests += 1
-                    
-                    if completedRequests == totalCryptos {
-                        completion()
+                    if completedRequests == cryptos.count {
+                        completion(results)
                     }
                 }
             }
             
-            fetchCryptoData(for: [crypto], defaultAssets: [asset]) { _, fetchedAsset in
-                asset = fetchedAsset
-                dataLoaded = true
+            fetchCryptoData(for: crypto) { result in
+                switch result {
+                case .success(let fetchedAsset):
+                    asset = fetchedAsset
+                case .failure(_):
+                    asset = crypto.defaultAsset
+                }
+                assetLoaded = true
                 checkCompletion()
-            } completion: {}
+            }
             
-            fetchLogos(for: [crypto]) { _, fetchedLogo in
-                logo = fetchedLogo
-                logoLoaded = true
+            fetchImage(from: crypto.logoURL) { result in
+                switch result {
+                case .success(let fetchedImageData):
+                    imageData = fetchedImageData
+                case .failure(_):
+                    imageData = nil
+                }
+                imageLoaded = true
                 checkCompletion()
-            } completion: {}
+            }
+            
         }
     }
 }

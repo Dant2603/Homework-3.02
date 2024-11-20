@@ -25,3 +25,7 @@ struct CryptoDataResponse: Decodable {
     let data: [CryptoAsset]
 }
 
+struct CryptoData {
+    let asset: CryptoAsset
+    let imageData: Data?
+}
