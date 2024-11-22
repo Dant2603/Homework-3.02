@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4861F9912CF1076D006C7289 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4861F9902CF1076D006C7289 /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4892F3682CD29B5800430B68 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4861F9912CF1076D006C7289 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +118,7 @@
 			);
 			name = "Crypto Tracker";
 			packageProductDependencies = (
+				4861F9902CF1076D006C7289 /* Alamofire */,
 			);
 			productName = "Homework 3.02";
 			productReference = 4892F3512CD29B5600430B68 /* Crypto Tracker.app */;
@@ -190,6 +196,9 @@
 			);
 			mainGroup = 4892F3482CD29B5600430B68;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4861F98F2CF1076D006C7289 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4892F3522CD29B5600430B68 /* Products */;
 			projectDirPath = "";
@@ -555,6 +564,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4861F98F2CF1076D006C7289 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4861F9902CF1076D006C7289 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4861F98F2CF1076D006C7289 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4892F3492CD29B5600430B68 /* Project object */;
 }

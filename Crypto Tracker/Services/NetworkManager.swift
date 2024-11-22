@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum NetworkError: Error {
     case noData
@@ -53,20 +54,25 @@ final class NetworkManager {
     }
     
     func fetchCryptoData(for crypto: Link, completion: @escaping (Result<CryptoAsset, NetworkError>) -> Void) {
-        fetch(CryptoDataResponse.self, from: crypto.url) { result in
-            switch result {
-            case .success(let cryptoDataResponse):
-                if let firstCryptoAsset = cryptoDataResponse.data.first {
-                    completion(.success(firstCryptoAsset))
-                } else {
-                    print("No data for \(crypto.symbol), using default asset.")
+        AF.request(crypto.url)
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    if let json = value as? [String: Any],
+                       let dataArray = json["data"] as? [[String: Any]],
+                       let firstData = dataArray.first,
+                       let cryptoAsset = CryptoAsset(json: firstData) {
+                        completion(.success(cryptoAsset))
+                    } else {
+                        print("Failed to parse JSON for \(crypto.symbol)")
+                        completion(.failure(.decodingError))
+                    }
+                case .failure(let error):
+                    print("Error fetching data for \(crypto.symbol): \(error)")
                     completion(.failure(.noData))
                 }
-            case .failure(let error):
-                print("Failed to fetch data for \(crypto.symbol): \(error)")
-                completion(.failure(error))
             }
-        }
     }
     
     // MARK: - Combined Data and Logo Fetching
